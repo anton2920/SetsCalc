@@ -22,9 +22,9 @@
 To install this program you need `libm.so`, `libncurses.so` and `libdialog.so` dynamic libraries.
 Then perform: 
 ```bash
-% ./configure
-% make
-# make install
+./configure
+make
+sudo make install
 ```
 
 ## Licence
