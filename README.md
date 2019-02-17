@@ -1,6 +1,7 @@
-# SetsCalc is a free powerful sets calculator. 
-## It distributes only under GPLv2 licence. Go to https://www.gnu.org/licenses/ for more information
+# SetsCalc 
+## It's a free powerful sets calculator. 
 
+## Brief descriprion
 ===> For sets input: 
 	There are several ways to fill up the gaps:
 	⋅ {ai, ai+1, ..., an}
@@ -16,5 +17,8 @@
 	⋅ The program will go on forever 'till you press «No» in continue menu
 	⋅ Contact anton2920@gmail.com if any issue occurs
 	⋅ Enjoy! :)
-	
-Copyright © 2018 Anton
+
+## Licence
+It distributes only under GPLv2 licence. Go to https://www.gnu.org/licenses/ for more information
+
+## Copyright © 2018 Anton
