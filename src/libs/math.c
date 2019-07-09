@@ -1,6 +1,6 @@
 /* 
 SetsCalc — powerful sets calculator
-Copyright © 2018 Anton
+Copyright © 2018–2019 Anton
 
 This file is part of SetsCalc.
 
@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with SetsCalc. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "../headers/project.h"
+#include "../headers/setscalc.h"
 
 char *sum(const char *a, const char *b, const int exl) {
 	

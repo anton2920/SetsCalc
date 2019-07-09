@@ -1,7 +1,6 @@
-# SetsCalc 
-## A free powerful sets calculator. 
+# SetsCalc — A free powerful sets calculator 
 
-## Brief description
+## Brief usage description
 ### For sets input: 
 #### There are several ways to fill up the gaps:
 	• {ai, ai+1, ..., an}
@@ -22,6 +21,7 @@
 To install this program you need `libm.so`, `libncurses.so` and `libdialog.so` dynamic libraries.
 Then perform: 
 ```bash
+sh ./autogen.sh
 ./configure
 make
 sudo make install

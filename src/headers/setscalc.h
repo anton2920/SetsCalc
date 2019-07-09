@@ -1,6 +1,6 @@
 /* 
 SetsCalc — powerful sets calculator
-Copyright © 2018 Anton
+Copyright © 2018–2019 Anton
 
 This file is part of SetsCalc.
 
@@ -43,14 +43,37 @@ along with SetsCalc. If not, see <https://www.gnu.org/licenses/>.
 #define COMM ("clear")
 #endif
 
+/* Include config header */
+#include "SetsCalc_config.h"
+
+/* Include default headers */
+#if HAVE_STDIO_H == 1
 #include <stdio.h>
+#endif
+
+#if HAVE_DIALOG_H == 1
 #include <dialog.h>
+#endif
+
+#if HAVE_CURSES_H == 1
 #include <curses.h>
+#endif
+
+#if HAVE_STRING_H == 1
 #include <string.h>
+#endif
+
+#if HAVE_STDLIB_H == 1
 #include <stdlib.h>
+#endif
+
+#if HAVE_CTYPE_H == 1
 #include <ctype.h>
+#endif
+
+#if HAVE_TIME_H == 1
 #include <time.h>
-#include "../../config.h"
+#endif
 
 /* main.c */
 void lclear(void); /* Clears console after completing */

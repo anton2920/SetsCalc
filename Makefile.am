@@ -1,7 +1,6 @@
-ACLOCAL_AMFLAGS = -I m4 --install
-bin_PROGRAMS = SetsCalc
-SetsCalc_SOURCES = src/main.c src/headers/project.h src/libs/menu.c src/libs/menu2.c src/libs/menu3.c src/libs/math.c src/libs/tree.c
-SetCalc_CFLAGS = -std=c90 -Wall
-SetsCalc_LDADD = -ldialog -lncursesw -lm
+AUTOMAKE_OPTIONS = foreign
+ACLOCAL_AMFLAGS = -I m4
+AM_CFLAGS = -fPIC -Wall -Wextra -std=c90
+SUBDIRS = src doc man examples 
 
-EXTRA_DIST = m4/NOTES
+EXTRA_DIST = autogen.sh 
