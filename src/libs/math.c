@@ -79,6 +79,9 @@ void to_opp(char *str, int param) {
 		if (!strcmp(str, "-{}")) {
 			strcpy(str, INT_ALL);
 			return;
+		} else if (!strcmp(str, MINT_ALL)) {
+			strcpy(str, "{}");
+			return;
 		}
 		pstr += 2;
 		for (i = 0; ; ++i) {

@@ -31,10 +31,23 @@ int set_sets(char *a, char *b, char *c) {
 	char change[NAME];
 	FILE *help;
     dialog_vars.input_menu = 1;
+#ifdef _WIN32
 	if ((help = fopen(HELP_FILE, "r"))) {
 		dialog_vars.help_file = HELP_FILE;
 		fclose(help);
+	}  
+#endif
+
+#ifdef __unix__
+	auto char hlpfile[NAME] = {};
+	strcat(hlpfile, getenv("HOME"));
+	strcat(hlpfile, HELP_FILE);
+	if ((help = fopen(hlpfile, "r"))) {
+		dialog_vars.help_file = hlpfile;
+		fclose(help);
 	}
+#endif
+	
 	dialog_vars.help_line = "Ctrl + U to clear field";
 	dialog_vars.extra_button = 1;
 	dialog_vars.extra_label = "Change";
@@ -79,12 +92,14 @@ void rep_str(char *str) {
 	int i, j;
 
 	/* Main part */
-	for (i = 0; i < strlen(str); ++i) {
-		if (isspace(*(str + i))) {
-			for (j = i; j < strlen(str); ++j) {
-				*(str + j) = *(str + (j + 1));
+	if (strcmp(str, INT_ALL)) {	
+		for (i = 0; i < strlen(str); ++i) {
+			if (isspace(*(str + i))) {
+				for (j = i; j < strlen(str); ++j) {
+					*(str + j) = *(str + (j + 1));
+				}
+				--i;
 			}
-			--i;
 		}
 	}
 }
@@ -95,7 +110,7 @@ int check(char *str) {
 	int i, len = strlen(str);
 
 	/* Main part */
-	if (!strcmp(str, "INT_ALL"))
+	if (!strcmp(str, "INT_ALL") || !strcmp(str, INT_ALL))
 		return 2;
 	if (!strncmp(str, "INT(", 4)) {
 		if (strstr(str, ",") && strstr(str, ")") && strchr(str, '(') == strrchr(str, '(') && strchr(str, ',') == strrchr(str, ',') && strchr(str, ')') == strrchr(str, ')')) {

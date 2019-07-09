@@ -20,6 +20,8 @@ along with SetsCalc. If not, see <https://www.gnu.org/licenses/>.
 
 #include "../headers/setscalc.h"
 
+#define CHECK_PREC(__expr) ((__expr == '^' || __expr == '*') ? 1 : 0)
+
 struct tnode *talloc(void) {
 
 	/* Returning value */
@@ -40,11 +42,12 @@ struct tnode *maketree(struct tnode *p, char *expr, const struct set *sets) {
 			return NULL;
 		}
 		do {
-			if (*expr == '-' && len != 2) {
+			if (*expr == '-' && *(expr + 1) == '(' && len != 2) {
 				minus *= -1;
 				to_neg(expr);
 			}
-		} while (de_par(expr)); 
+		} while (de_par(expr));
+		len = strlen(expr); /* Find length once again */
 		if (len == 1 || (len == 2 && *expr == '-')) {
 			p->op = strdup(expr);
 		} else {
@@ -120,14 +123,15 @@ struct tnode *maketree(struct tnode *p, char *expr, const struct set *sets) {
 					break;
 			}
 		}
-		if (minus == -1) {
-			to_neg(p->op);
-		}
 	} else {
 		p->op = strdup(derefer(p->op, sets));
 		if (!p->op) {
 			return NULL;
 		}
+	}
+
+	if (minus < 0) {
+		to_neg(p->op);
 	}
 
 	/* Returning value */
@@ -168,6 +172,7 @@ char *find_op(const char *str) {
 
 	/* Initializing variables */
 	int level = 0, i, len = strlen(str);
+	auto int min_prec = 2, prec;
 	char znak;
 	
 	/* Main part */
@@ -176,8 +181,9 @@ char *find_op(const char *str) {
 			++level;
 		} else if (*(str + i) == ')') {
 			--level;
-		} else if (isop(*(str + i)) && !level) {
+		} else if (isop(*(str + i)) && !level && (prec = CHECK_PREC(*(str + i))) <= min_prec) {
 			znak = *(str + i);
+			min_prec = prec;
 		}
 	}
 

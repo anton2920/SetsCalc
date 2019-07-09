@@ -1,0 +1,1 @@
+mkdir -p ${HOME}/.local/share/SetsCalc/ && cp -f ./files/help.txt ${HOME}/.local/share/SetsCalc/help.txt

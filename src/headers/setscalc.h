@@ -25,12 +25,21 @@ along with SetsCalc. If not, see <https://www.gnu.org/licenses/>.
 #define TITLE ("Sets calculator")
 #define NAME (1024)
 #define INT_ALL ("{x ∈ N | -∞ < x < +∞ }")
+#define MINT_ALL ("-{x ∈ N | -∞ < x < +∞ }")
 #define ABS(X) ((X) < 0) ? (-(X)) : (X)
 #define ERROR_MSG ("Error! Illegal expression!")
 #define ERROR_MSG_FILE ("Error! Couldn\'t open file!")
 #define ERROR_TREE ("Error! Binary tree problems!")
 #define NONE_STR ("awhbfdj")
-#define HELP_FILE ("files/help.txt")
+
+#ifdef _WIN32
+#define HELP_FILE ("help.txt")
+#endif
+
+#ifdef __unix__
+#define HELP_FILE ("/.local/share/SetsCalc/help.txt")
+#endif
+
 #define LEFT_TREE (p->left = maketree(p->left, exprl, sets))
 #define RIGHT_TREE (p->right = maketree(p->right, exprr, sets))
 

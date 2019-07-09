@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with SetsCalc. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "headers/project.h"
+#include "headers/setscalc.h"
 
 main() {
 
