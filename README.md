@@ -31,4 +31,4 @@ sudo make install
 It distributes only under GPLv2 licence. Go to https://www.gnu.org/licenses/ for more information
 
 ## Copyright 
-© 2018 Anton
+© Anton, 2018-2022

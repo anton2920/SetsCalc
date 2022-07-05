@@ -1,6 +1,6 @@
 /* 
 SetsCalc — powerful sets calculator
-Copyright © 2018–2019 Anton
+Copyright © 2018-2022 Anton
 
 This file is part of SetsCalc.
 
